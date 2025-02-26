@@ -1,0 +1,16 @@
+---
+description: Rules for UI
+globs: 
+alwaysApply: false
+---
+# UI Rules
+
+## Tailwind CSS
+- Use `size-[]` instead of `w-[] h-[]`
+
+## Shadcn UI
+- Install new components with command `pnpm dlx shadcn@latest add []`
+
+## Framer Motion
+- Import motion from 'motion/react'
+- Reference: (website)[https://motion.dev/docs]
