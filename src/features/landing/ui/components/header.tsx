@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'motion/react'
 
-import { Button } from '@/components/ui/button'
+import { ShinyButton } from '@/components/magicui/shiny-button'
+import { RainbowButton } from '@/components/magicui/rainbow-button'
 
 export function Header() {
   return (
@@ -27,32 +28,50 @@ export function Header() {
           </motion.div>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
-          <Link
-            href="#features"
-            className="text-sm font-medium transition-colors hover:text-primary"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            Features
-          </Link>
-          <Link
-            href="#how-it-works"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            <Link
+              href="#features"
+              className="relative text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:text-primary hover:after:w-full"
+            >
+              Features
+            </Link>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            How It Works
-          </Link>
-          <Link
-            href="#pricing"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            <Link
+              href="#how-it-works"
+              className="relative text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:text-primary hover:after:w-full"
+            >
+              How It Works
+            </Link>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            Pricing
-          </Link>
+            <Link
+              href="#pricing"
+              className="relative text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:text-primary hover:after:w-full"
+            >
+              Pricing
+            </Link>
+          </motion.div>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/login">Log In</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link href="/signup">Sign Up</Link>
-          </Button>
+          <RainbowButton>
+            <Link href="/sign-in">Log In</Link>
+          </RainbowButton>
+          <ShinyButton>
+            <Link href="/sign-up">Sign Up</Link>
+          </ShinyButton>
         </div>
       </div>
     </motion.header>

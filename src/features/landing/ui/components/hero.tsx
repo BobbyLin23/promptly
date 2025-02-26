@@ -1,11 +1,24 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useAuth } from '@clerk/nextjs'
 import { motion } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
 
 export function Hero() {
+  const router = useRouter()
+  const { isSignedIn } = useAuth()
+
+  const handleGetStarted = () => {
+    if (isSignedIn) {
+      router.push('/dashboard')
+    } else {
+      router.push('/sign-in')
+    }
+  }
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
       {/* Background gradient */}
@@ -72,8 +85,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <Button size="lg" asChild>
-              <Link href="/signup">Get Started Free</Link>
+            <Button size="lg" onClick={handleGetStarted}>
+              Get Started Free
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link href="#demo">See Demo</Link>
