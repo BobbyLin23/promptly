@@ -66,7 +66,7 @@ export function Header() {
           </motion.div>
         </nav>
         <div className="flex items-center gap-4">
-          <RainbowButton>
+          <RainbowButton className="uppercase">
             <Link href="/sign-in">Log In</Link>
           </RainbowButton>
           <ShinyButton>
