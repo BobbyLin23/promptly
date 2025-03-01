@@ -1,6 +1,6 @@
-import { ApplicationCard } from '@/features/dashboard/ui/components/application-card'
-import { CreateApplicationCard } from '@/features/dashboard/ui/components/create-application-card'
-import { Header } from '@/features/dashboard/ui/components/header'
+import { ApplicationCard } from '@/features/dashboard/components/application-card'
+import { CreateApplicationCard } from '@/features/dashboard/components/create-application-card'
+import { Header } from '@/features/dashboard/components/header'
 import { mockApplications } from '@/lib/mock-data'
 
 export default function DashboardPage() {

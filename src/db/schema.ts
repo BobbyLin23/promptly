@@ -20,3 +20,16 @@ export const applications = pgTable('applications', {
     .notNull()
     .$onUpdate(() => new Date()),
 })
+
+export const prompts = pgTable('prompts', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: varchar('name', { length: 255 }).notNull(),
+  content: text('content').notNull(),
+  userId: varchar('user_id', { length: 255 }).notNull(),
+  applicationId: uuid('application_id').references(() => applications.id),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at')
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => new Date()),
+})

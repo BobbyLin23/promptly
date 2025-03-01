@@ -1,4 +1,4 @@
-import { Application } from '@/features/dashboard/ui/components/application-card'
+import { Application } from '@/features/dashboard/components/application-card'
 
 export const mockApplications: Application[] = [
   {
