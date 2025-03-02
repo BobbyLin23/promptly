@@ -7,6 +7,8 @@ import {
   boolean,
 } from 'drizzle-orm/pg-core'
 
+import { createInsertSchema } from 'drizzle-zod'
+
 // 应用表 - 用户创建的应用
 export const applications = pgTable('applications', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -20,6 +22,11 @@ export const applications = pgTable('applications', {
     .notNull()
     .$onUpdate(() => new Date()),
 })
+
+export type Application = typeof applications.$inferSelect
+export type CreateApplication = typeof applications.$inferInsert
+
+export const createApplicationSchema = createInsertSchema(applications)
 
 export const prompts = pgTable('prompts', {
   id: uuid('id').defaultRandom().primaryKey(),

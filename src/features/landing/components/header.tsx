@@ -2,9 +2,12 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 import { ShinyButton } from '@/components/magicui/shiny-button'
 import { RainbowButton } from '@/components/magicui/rainbow-button'
+import { LayoutDashboardIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export function Header() {
   return (
@@ -66,12 +69,23 @@ export function Header() {
           </motion.div>
         </nav>
         <div className="flex items-center gap-4">
-          <RainbowButton className="uppercase">
-            <Link href="/sign-in">Log In</Link>
-          </RainbowButton>
-          <ShinyButton>
-            <Link href="/sign-up">Sign Up</Link>
-          </ShinyButton>
+          <SignedIn>
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard">
+                <LayoutDashboardIcon className="h-4 w-4" />
+                Dashboard
+              </Link>
+            </Button>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <RainbowButton className="uppercase">
+              <Link href="/sign-in">Log In</Link>
+            </RainbowButton>
+            <ShinyButton>
+              <Link href="/sign-up">Sign Up</Link>
+            </ShinyButton>
+          </SignedOut>
         </div>
       </div>
     </motion.header>
